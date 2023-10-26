@@ -1,0 +1,58 @@
+int CON = 0;
+int A= 0;
+int B= 0;
+float ganancia= 0;
+
+void setup(){ 
+  
+  pinMode(7,OUTPUT);
+  pinMode(6,OUTPUT);
+  pinMode(5,OUTPUT);
+  
+  pinMode(11,INPUT);
+  pinMode(10,INPUT);
+  pinMode(9,INPUT);
+  pinMode(8,INPUT);
+  
+  Serial.begin(9600);
+}
+
+void loop(){
+  
+  int A=digitalRead(11); 
+  int B=digitalRead(10);
+  
+if (A == HIGH && B == LOW)
+{
+CON=CON+1;
+delay(200);
+Serial.print(CON);
+  Serial.print(" ="); 
+  ganancia=ganancia+5000;
+   Serial.print(ganancia);
+  Serial.println(" ");
+}
+  
+
+if (A == LOW && B == HIGH)
+{
+CON=CON-1;
+delay(200);
+  Serial.print(CON);
+  Serial.print(" ="); 
+   Serial.print(ganancia);
+  Serial.println(" "); 
+}
+ 
+  if(CON < 10)
+   digitalWrite(5,HIGH);
+   digitalWrite(7,LOW);
+  {
+ }
+  if(CON > 9){
+    digitalWrite(7,HIGH);
+    digitalWrite(5,LOW);
+    
+  }
+}
+  
