@@ -14,7 +14,6 @@ void setup()
 
 void loop()
 {
-
      bool A,B,C,D;
   A=digitalRead(11); 
   B=digitalRead(10);  
@@ -22,21 +21,16 @@ void loop()
   D=!digitalRead(8);
 
    bool E;
-  E= (A&&D)||(C&&D)||(C&&A)||(B&&D)||(B&&A)||(B&&C);
-  digitalWrite(5,E);
-
+  E= D&&(A&&(B||C)||!A&&!B&&!C||B&&C)||!A&&!D&&(B^C)||A&&B&&C;
+  
+    digitalWrite(7,E);
    bool F;
-  F= !A && !B && !C && D || !A && !B && !C && D || !A && B && !C && D || B && C && D || A && C && D || A && B && D || A && B && C ;
+  F = A&&B&&C&&D;
 
-    digitalWrite(7,F);
+    digitalWrite(6,F);
 
    bool G; 
-  G= A && B && C && D;
-
-  digitalWrite(6, G);
-
-}
-  G= A && B && C && D;
+  G = A&&(B||D||C)||B&&(D||C)||C&&D;
 
   digitalWrite(5, G);
 
