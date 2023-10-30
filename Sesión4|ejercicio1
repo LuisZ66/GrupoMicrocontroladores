@@ -1,0 +1,24 @@
+void setup() {
+ pinMode(D8,OUTPUT);//ROJO
+ pinMode(D7, OUTPUT);//AZUL
+ pinMode(D3,INPUT);//PULSADOR
+ pinMode(D4, OUTPUT);//INTERNO
+ digitalWrite(D7, LOW);  
+ digitalWrite(D4, LOW);
+}
+void loop() {
+ 
+ digitalWrite(D7, HIGH);
+ digitalWrite(D4, HIGH);
+ delay(500);
+
+ digitalWrite(D7, LOW);
+ digitalWrite(D4, LOW);
+ delay(500);
+  
+  if(digitalRead(D3)== HIGH){
+    digitalWrite(D8, LOW);
+  }
+  else{digitalWrite(D8, HIGH);   
+  } 
+}
